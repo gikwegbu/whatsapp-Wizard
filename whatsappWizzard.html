@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="George Ikwegbu" />
+    <meta
+      name="description"
+      content="a single page application that allows one send whatsapp direct message directly to a number, provided the number is registered on whatsapp database."
+    />
+    <title>Whatsapp-Wizard</title>
+    <style type="text/css">
+      * {
+        background-color: black;
+        color: white;
+      }
+      body {
+        height: 100px;
+        overflow: hidden;
+      }
+      form {
+        margin: 100px 0px 0px 5%;
+      }
+      form img {
+        width: 250px;
+      }
+      form label {
+        color: rgba(69, 214, 69, 0.816);
+        margin-left: 15px;
+      }
+      form input {
+        border-radius: 20px;
+        background-color: #efefef;
+        border: 1px solid transparent;
+        color: black;
+        width: 90%;
+        padding: 1em;
+        margin-bottom: 20px;
+      }
+      form textarea {
+        border-radius: 20px;
+        width: 90%;
+        padding: 1em;
+        background-color: #efefef;
+        color: black;
+        margin-bottom: 10px;
+        border: 1px solid transparent;
+      }
+      form button {
+        padding: 1em;
+        border-radius: 10px;
+        width: 50%;
+        background-color: rgba(62, 168, 62, 0.816);
+        float: center;
+      }
+      footer {
+        position: absolute;
+        bottom: 0px;
+        width: 100%; 
+      } 
+    </style>
+  </head>
+
+  <body>
+    <form onsubmit="return false">
+      <img
+        alt="George Ikwegbu"
+        style="border-radius: 100%; margin: 0 15%; border: 2px dashed white;"
+        src="https://f6s-public.s3.amazonaws.com/profiles/2093540_original.jpg"
+        alt=""
+      />
+      <br />
+      <label for="number">Enter Phone Number: </label>
+      <br />
+      <input
+        type="text"
+        id="number"
+        placeholder="Enter whatsapp number"
+        required
+      />
+      <br />
+      <textarea
+        row="7"
+        col="20"
+        required
+        placeholder="Enter message"
+        id="message"
+      ></textarea>
+      <br />
+      <center>
+        <button type="submit" onclick="openWhatsapp()">
+          Send Whatsapp Message
+        </button>
+      </center>
+    </form>
+    <br><br><br><br>
+    <footer>
+      <center>Powered By George Ikwegbu</center>
+    </footer>
+  </body>
+  <script type="text/javascript">
+    function openWhatsapp() {
+      var number = document.getElementById("number").value;
+      var message = document.getElementById("message").value;
+      if (number != 0) {
+        location.assign("whatsapp://send?text=" + message + "&phone=" + number);
+      }
+    }
+  </script>
+</html>
+
+<!-- location.assign('whatsapp://send?text=Hello+George&phone=08101570258') -->
